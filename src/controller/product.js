@@ -1,10 +1,16 @@
 const { product, user } = require('../../models');
+const cloudinary = require('../utils/cloudinary');
 
 exports.addProduct = async (req, res) => {
   try {
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'product',
+      use_filename: true,
+      unique_filename: false,
+    });
     const data = {
       name: req.body.name,
-      image: req.file.filename,
+      image: result.public_id,
       harga: req.body.harga,
       harga_jual: req.body.harga_jual,
       stok: req.body.stok,

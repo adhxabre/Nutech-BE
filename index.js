@@ -11,10 +11,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/v1/', router);
 app.use('/uploads', express.static('uploads'));
-app.get('/', function (req, res) {
-  res.send({
-    message: 'Hello Sodikul',
-  });
+app.get('/', (req, res) => {
+  res.send('Hello Developer!');
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));

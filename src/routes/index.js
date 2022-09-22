@@ -11,7 +11,8 @@ const { addProduct, getProducts, getProduct, deleteProduct, updateProduct } = re
 // Route
 router.post('/register', register);
 router.post('/login', login);
-router.get('/check-auth', auth, checkAuth);
+router.post('/check-auth', auth, checkAuth);
+
 router.post('/product', auth, uploadFile('image'), addProduct);
 router.get('/products', auth, getProducts);
 router.get('/product/:id', auth, getProduct);

@@ -21,6 +21,6 @@ app.get('/', (req, res) => {
   res.send('Hello Developer!');
 });
 
-app.listen(port, () => {
-  console.log(`Server is listenin on port ${port}`);
+app.listen(process.env.PORT || 5000, function () {
+  console.log('Server is listenin on port');
 });
